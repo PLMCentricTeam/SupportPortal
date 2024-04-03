@@ -30,17 +30,17 @@ formulir.addEventListener("submit", function(event) {
     const JumlahHariCuti = document.getElementById("Jumlah Hari Cuti").value;
     const Keterangan = document.getElementById("Keterangan").value;
     const todaysDate = getTodayDate(); 
-    const splitKeterangan = Keterangan.split('');
-    let baris = 1;
-    let outputText = '';
+    // const splitKeterangan = Keterangan.split('');
+    // let baris = 1;
+    // let outputText = '';
 
-    for (let i = 0; i < splitKeterangan.length; i++) {
-        if (i % 45 === 0 && i !== 0) {
-        baris++;
-        outputText += '\n   ';
-        }
-        outputText += splitKeterangan[i];
-    }
+    // for (let i = 0; i < splitKeterangan.length; i++) {
+    //     if (i % 45 === 0 && i !== 0) {
+    //     baris++;
+    //     outputText += '\n   ';
+    //     }
+    //     outputText += splitKeterangan[i];
+    // }
 
     // Generate PDF
     const pdf = new jsPDF();
@@ -66,7 +66,8 @@ formulir.addEventListener("submit", function(event) {
     pdf.text(20, 110, "Jumlah Hari Cuti");
     pdf.text(90, 110, " : " + JumlahHariCuti);
     pdf.text(20, 120, "Keterangan");
-    pdf.text(90, 120, " : " + outputText);
+    pdf.text(90, 120, " : " + Keterangan);
+    // pdf.text(90, 120, " : " + outputText);
     pdf.text(140, 140, "Pringgapus, " + todaysDate);
     pdf.line(94, 51, 190, 51);
     pdf.line(94, 61, 190, 61);
