@@ -15,19 +15,6 @@ function getTodayDate() {
     return formattedDate; // Or formattedDate2 for "Month DD, YYYY" format
   }
 
-function generatePDF() {
-    const img = document.getElementById("image").files[0]; // Mendapatkan file gambar yang dipilih
-    const pdf = new jsPDF();
-
-    // Membaca file gambar
-    const reader = new FileReader();
-    reader.onload = function() {
-        const imgData = reader.result;
-    };
-
-    reader.readAsDataURL(img);
-}
-
 const formulir = document.getElementById("formulir");
 
 formulir.addEventListener("submit", function(event) {
@@ -43,7 +30,17 @@ formulir.addEventListener("submit", function(event) {
     const JumlahHariCuti = document.getElementById("Jumlah Hari Cuti").value;
     const Keterangan = document.getElementById("Keterangan").value;
     const todaysDate = getTodayDate(); 
-    // const TTD = document.getElementById("TTD").files[0];
+    const splitKeterangan = Keterangan.split('');
+    let baris = 1;
+    let outputText = '';
+
+    for (let i = 0; i < splitKeterangan.length; i++) {
+        if (i % 45 === 0 && i !== 0) {
+        baris++;
+        outputText += '\n   ';
+        }
+        outputText += splitKeterangan[i];
+    }
 
     // Generate PDF
     const pdf = new jsPDF();
@@ -69,8 +66,8 @@ formulir.addEventListener("submit", function(event) {
     pdf.text(20, 110, "Jumlah Hari Cuti");
     pdf.text(90, 110, " : " + JumlahHariCuti);
     pdf.text(20, 120, "Keterangan");
-    pdf.text(90, 120, " : " + Keterangan);
-    pdf.text(140, 140, "Pringapus, " + todaysDate);
+    pdf.text(90, 120, " : " + outputText);
+    pdf.text(140, 140, "Pringgapus, " + todaysDate);
     pdf.line(94, 51, 190, 51);
     pdf.line(94, 61, 190, 61);
     pdf.line(94, 71, 190, 71);
@@ -79,6 +76,8 @@ formulir.addEventListener("submit", function(event) {
     pdf.line(94, 101, 190, 101);
     pdf.line(94, 111, 190, 111);
     pdf.line(94, 121, 190, 121);
+    pdf.line(94, 126, 190, 126);
+    pdf.line(94, 131, 190, 131);
     pdf.setFontSize(12);
     pdf.text(20, 150, "Menyetujui Ka. Bag");
     pdf.text(90, 150, "Supervisor");
@@ -87,17 +86,8 @@ formulir.addEventListener("submit", function(event) {
     pdf.line(10, 175, 70, 175);
     pdf.line(80, 175, 125, 175);
     pdf.line(140, 175, 180, 175);
-    // if (TTD) {
-    //     const reader = new FileReader();
-    //     reader.onload = function() {
-    //         const imgData = reader.result;
-    //         pdf.addImage(imgData, 'JPEG', 148, 155, 30, 30);
-    //     };
-    //     reader.readAsDataURL(TTD);
-    // }
     pdf.setLineWidth(1);
     pdf.line(0, 190, 250, 190);
-
     pdf.setFontSize(16);
     pdf.text(10, 210, "DIISI OLEH BAGIAN PERSONALIA");
     pdf.setFontSize(12);
