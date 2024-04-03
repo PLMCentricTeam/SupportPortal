@@ -37,14 +37,18 @@
         <label for="Jumlah Hari Cuti">Jumlah Hari Cuti :</label>
         <input type="number" id="Jumlah Hari Cuti" name="Jumlah Hari Cuti">
         <p>
-        <label for="Keterangan">Keterangan :</label>
-        <textarea id="Keterangan" name="Keterangan"></textarea>
+        <label for="Keterangan">Keterangan : (Maks. 30 Karakter)</label>
+        <textarea id="Keterangan" name="Keterangan" maxlength="30"></textarea>
         <p>
-        <!-- <label for="TTD">TTD Pemohon :</label>
-        <input type="file" id="TTD" name="TTD">
-        <br> -->
         <button type="submit">Generate PDF</button>
     </form>
+    <!-- <h1>Masukkan Data</h1>
+  <form id="my-form">
+    <input type="text" name="data" placeholder="Masukkan data">
+    <button type="submit">Generate PDF</button>
+  </form>
+
+  <div id="output"></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="script.js"></script>
 </body>
