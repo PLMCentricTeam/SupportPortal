@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir PDF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formulir</h1>
+    <form id="formulir">
+        <label for="nama">Factory :</label>
+        <select id="factory">
+            <option value="">Pilih Factory</option>
+            <option value="PRINGAPUS 1">PRINGAPUS 1</option>
+            <option value="PRINGAPUS 7">PRINGAPUS 7</option>
+        </select>
+        <p>
+        <label for="nama">Nama :</label>
+        <input type="text" id="nama" name="nama">
+        <p>
+        <label for="NO Coin/NIK">NO Coin/NIK :</label>
+        <input type="text" id="NO Coin/NIK" name="NO Coin/NIK">
+        <p>
+        <label for="Jabatan">Jabatan :</label>
+        <input type="text" id="Jabatan" name="Jabatan">
+        <p>
+        <label for="Departemen">Departemen :</label>
+        <input type="text" id="Departemen" name="Departemen">
+        <p>
+        <label for="Tanggal Masuk Sebagai Karyawan">Tanggal Masuk Sebagai Karyawan :</label>
+        <input type="date" id="Tanggal Masuk Sebagai Karyawan" name="Tanggal Masuk Sebagai Karyawan">
+        <p>
+        <label for="Akan ambil ijin">Akan ambil ijin :</label>
+        <input type="date" id="Akan ambil ijin" name="Akan ambil ijin">
+        <p>
+        <label for="Jumlah Hari Cuti">Jumlah Hari Cuti :</label>
+        <input type="number" id="Jumlah Hari Cuti" name="Jumlah Hari Cuti">
+        <p>
+        <label for="Keterangan">Keterangan :</label>
+        <textarea id="Keterangan" name="Keterangan"></textarea>
+        <p>
+        <!-- <label for="TTD">TTD Pemohon :</label>
+        <input type="file" id="TTD" name="TTD">
+        <br> -->
+        <button type="submit">Generate PDF</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
